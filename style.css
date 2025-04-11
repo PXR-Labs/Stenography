@@ -1,0 +1,217 @@
+/* Base Styles */
+:root {
+    --dark-bg: #1d1f21;
+    --box-bg: #2d2f33;
+    --input-bg: #3a3c40;
+    --text-color: #eaeaea;
+    --accent-color: #007BFF;
+    --accent-hover: #0056b3;
+    --border-color: #555;
+    --placeholder-color: #b3b3b3;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: var(--box-bg);
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    text-align: center;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+/* UI Elements */
+.upload-section {
+    margin-bottom: 20px;
+}
+
+.custom-button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px 5px;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: var(--accent-hover);
+}
+
+.custom-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.custom-button i {
+    margin-right: 5px;
+}
+
+/* Form Elements */
+#imageInput {
+    display: none;
+}
+
+textarea, select, input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    resize: vertical;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+textarea::placeholder,
+input::placeholder {
+    color: var(--placeholder-color);
+}
+
+/* Canvas */
+canvas {
+    margin: 20px auto;
+    max-width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--input-bg);
+    display: block;
+}
+
+/* Output Section */
+.output {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    min-height: 40px;
+    text-align: left;
+    color: var(--text-color);
+    word-break: break-word;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--box-bg);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#modalOutput {
+    background-color: var(--input-bg);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+    max-height: 200px;
+    overflow-y: auto;
+    text-align: left;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.modal-buttons .custom-button {
+    width: 100%;
+    margin: 5px 0;
+}
+
+/* Notification Message */
+.message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.5s;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    .custom-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
