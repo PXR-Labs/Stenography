@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A tool for hiding text messages within images using steganography and encryption techniques">
+    <title>Image Steganography & Encryption Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Steganography & Text Encryption Tool</h1>
+
+        <!-- Image Upload Section -->
+        <div class="upload-section">
+            <label for="imageInput" class="custom-button">
+                <i class="fas fa-upload"></i> Upload Image
+            </label>
+            <input type="file" id="imageInput" accept="image/*">
+        </div>
+
+        <!-- Canvas for Image Display -->
+        <canvas id="canvas"></canvas>
+
+        <!-- Text Input and Encryption Options -->
+        <div class="text-section">
+            <textarea id="hiddenText" placeholder="Enter the text you want to hide..."></textarea>
+
+            <select id="encryptionSelect">
+                <option value="none">No Encryption</option>
+                <option value="base64">Base64</option>
+                <option value="caesar">Caesar Cipher</option>
+                <option value="xor">XOR Encryption</option>
+                <option value="reverse">Reverse Text</option>
+            </select>
+
+            <input type="password" id="encryptionKey" placeholder="Enter encryption key (if applicable)" />
+
+            <!-- Action Buttons -->
+            <button id="encodeButton" class="custom-button" disabled>
+                <i class="fas fa-lock"></i> Encode & Hide Text
+            </button>
+            <button id="decodeButton" class="custom-button" disabled>
+                <i class="fas fa-unlock"></i> Decrypt & Reveal Text
+            </button>
+
+            <!-- Hidden Download Link -->
+            <a id="downloadLink" style="display:none;" download="stego-image.png" href="#"></a>
+        </div>
+    </div>
+    
+    <!-- Modal for Decrypted Text -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <h2>Decrypted Text</h2>
+            <div id="modalOutput"></div>
+            
+            <div class="modal-buttons">
+                <button id="copyButton" class="custom-button">
+                    <i class="fas fa-copy"></i> Copy to Clipboard
+                </button>
+                
+                <select id="decryptionSelect">
+                    <option value="none">No Decryption</option>
+                    <option value="base64">Base64</option>
+                    <option value="caesar">Caesar Cipher</option>
+                    <option value="xor">XOR Encryption</option>
+                    <option value="reverse">Reverse Text</option>
+                </select>
+                
+                <button id="downloadButton" class="custom-button">
+                    <i class="fas fa-download"></i> Download Image
+                </button>
+                
+                <button id="closeModalButton" class="custom-button">
+                    <i class="fas fa-times"></i> Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
