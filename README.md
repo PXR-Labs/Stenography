@@ -1,2 +1,2 @@
 # Stenography
-A basic sec steganography built with js
+A basic sec steganography built with js and css
